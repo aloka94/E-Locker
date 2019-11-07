@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Profile Page</h2>
+<div>
+    <p>Your details are displayed below:</p>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ userDetails['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ userDetails['password'] }}</td>
+        </tr>
+        <tr>
+            <td>Date Of Birth:</td>
+            <td>{{ userDetails['dob'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ userDetails['email'] }}</td>
+        </tr>
+        <tr>
+            <td>Driver's License Number:</td>
+            <td>{{ userDetails['dl_no'] }}</td>
+        </tr>
+        <tr>
+            <td>Social Security Number:</td>
+            <td>{{ userDetails['ss_no'] }}</td>
+        </tr>
+        <tr>
+            <td>Credit Card Number:</td>
+            <td>{{ userDetails['cc_no'] }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
