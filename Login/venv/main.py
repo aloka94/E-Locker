@@ -26,7 +26,13 @@ def login():
         # Checking if account exists in database
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         # Query using string concatenation. This makes the app SQL Injection Vulnerable
-        cursor.execute("SELECT * FROM users WHERE username = '%s' """ % username +"AND password = '%s' """ %password)
+        #cursor.execute("SELECT * FROM users WHERE username = '%s' """ % username +"AND password = '%s' """ %password)
+        
+        # Parameterized query which prevents SQL Injection
+        x = 'SELECT * FROM users WHERE username = %s AND password = %s'
+        insert_values = (username, password)
+        cursor.execute(x, insert_values)
+
         # Fetch existing record
         user = cursor.fetchone()
         if user:
